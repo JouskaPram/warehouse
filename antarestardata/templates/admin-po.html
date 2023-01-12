@@ -1,0 +1,31 @@
+{%extends 'base.html'%} {%block content%}
+<table>
+  <thead>
+    <tr>
+      <td>No</td>
+      <td>Produk</td>
+      <td>Bahan</td>
+      <td>warna</td>
+      <td>ukuran</td>
+      <td>qty</td>
+      <td>harga</td>  
+      <td>jumlah</td>
+      <td>Nama Penulis</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr {% for po in preorder%}>
+      <td>1</td>
+      <td>{{po.produk}}</td>
+      <td>{{po.bahan}}</td>
+      <td>{{po.warna}}</td>
+      <td>{{po.ukuran}}</td>
+      <td>{{po.qty}}</td>
+      <td>{{po.harga}}</td>
+      
+      <td>{{po.nama_penulis}}</td>
+    </tr {%endfor%}>
+  </tbody>
+</table>
+
+{%endblock%}

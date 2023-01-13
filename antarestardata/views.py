@@ -33,6 +33,7 @@ def addpreorder(req):
         form = FormPreorder(req.POST)
         if form.is_valid:
             form.save()
+            form=FormPreorder()
             # pesan="data berhasil di tambahkan"
             konteks={
                 'form':form,
@@ -46,3 +47,11 @@ def addpreorder(req):
                 # 'pesan':pesan
             }
     return render(req,'tambah-po.html',konteks)
+
+
+def suplier(req):
+    sup = Suplier.objects.all()
+    konteks={
+        "sup":sup
+    }
+    return render(req,'supplier.html',konteks)

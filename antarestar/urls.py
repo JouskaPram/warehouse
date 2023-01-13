@@ -8,5 +8,5 @@ urlpatterns = [
     path('adminpage',adminpage),
     path('tambahpo/',addpreorder),
     path('',base),
-    path('preorder',getpo)
+    path('preorder/',getpo,name="preorder")
 ]

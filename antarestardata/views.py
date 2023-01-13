@@ -10,15 +10,21 @@ def base(req):
 # template admin page
 def adminpage(req):
     preorder = Preorder.objects.all()
+  
     konteks={
-        'preorder':preorder
+        'preorder':preorder,
+      
     }
     return render(req,'admin-page.html',konteks)
 
 def getpo(req):
     preorder = Preorder.objects.all()
+    row_count = Preorder.objects.count()
     konteks={
-        'preorder':preorder
+        'preorder':preorder,
+        'row_count':row_count
+       
+        
     }
     return render(req,'admin-po.html',konteks)
 
@@ -27,16 +33,16 @@ def addpreorder(req):
         form = FormPreorder(req.POST)
         if form.is_valid:
             form.save()
-            pesan="data berhasil di tambahkan"
+            # pesan="data berhasil di tambahkan"
             konteks={
                 'form':form,
-                'pesan':pesan
+                # 'pesan':pesan
             }
             return render(req,'tambah-po.html',konteks)
     else:
         form = FormPreorder(req.POST)
         konteks={
                 'form':form,
-                'pesan':pesan
+                # 'pesan':pesan
             }
     return render(req,'tambah-po.html',konteks)
